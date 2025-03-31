@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    username: postgres
+    password: NewPost
+    url: jdbc:postgresql://localhost:5432/job_management
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 50118747366-5crub9n9es70ree6k5tdq5atrheccscu.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - openid
+              - profile
+              - email
+  application:
+    name: Job-Application-system
+
+server:
+  port: 8086
+
+file:
+  upload:
+    directory: ./uploads/
+  storage:
+    max-size: 10MB
+    allowed-types:
+      - application/pdf
+      - image/jpeg
+      - image/png
